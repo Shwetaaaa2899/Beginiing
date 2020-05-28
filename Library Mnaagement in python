@@ -1,0 +1,104 @@
+import random
+class Library():
+    def __init__(self,list_of_books,lib_name):
+        self.list = list_of_books
+        self.lib_name = lib_name
+    def display_books(self):
+        print("We have these books")
+        i = 1
+        for book in self.list:
+            print(f"{i}.", book)
+            i += 1
+    def take_book(self,book_name):
+        if(book_name in self.list):
+            self.list.remove(book_name)
+        else:
+            print("This books isn't available")
+
+    def return_book(self,book_name):
+        self.list_of_fine = { "Shweta": 5,
+        "KArtik": 6,
+        "Raaji":9}
+        self.person_name = input("Enter you name:")
+        person_name = self.person_name
+        if(person_name in self.list_of_fine ):
+            print("You have to pay a fine of Rs",self.list_of_fine[person_name])
+            self.list.append(book_name)
+        else:
+            self.list.append(book_name)
+        print("Thankyou for returning the book")
+        
+    
+
+class Student():
+    def match_id(self,name,lib_name_list):
+        if(name in lib_name_list):
+            print("Your id is correct")
+        else:
+            print("Uh arent from this area")
+
+    def lend_book(self):
+        print("Kindly return it on the valid date")
+        self.book = input("Eneter a book name:")
+        return self.book
+    def give_back(self):
+        self.book = input("Enter a book name:")
+        return self.book
+    def fill_id_info(self):
+        self.name = input("enter your name:")
+        self.age = int(input('Enter your age:'))
+        self.branch = input("Enter your branch name:")
+        self.data = input("Enter todays date:")
+        self.lsit = ["Abs", "Xyes245","ADRAETYY"]
+        self.captcha = random.choice(self.lsit)
+        print(self.captcha)
+        self.password = input('Enter the given captcha:')
+        if(self.password == self.captcha ):
+            print("Successfully Login")
+            done = True
+        else:
+            self.captcha = random.choice(self.lsit)
+            print(self.captcha)
+
+
+            print("Try aagain :")
+            done = False
+            
+        return done
+
+
+        
+
+def main_work():
+    list_of_lib_students = ["Shweta","Raji","Divayangi","Rajalaxmi"]
+    stu = Student()
+    stu.match_id("Shweta", list_of_lib_students)
+    stu.match_id("kartikk", list_of_lib_students)
+    lsssi = ["Cindrella", "hindrella","Champak","chowmin"]
+    lib = Library(lsssi,"Gokul")
+    print("First fill ur id information!! :)")
+    answer = stu.fill_id_info()
+    if(answer  == True):
+
+        while(1):
+        
+            print("1. Dispaly the books name \n 2. return a book\n3 Lend a book\n4.Exit")
+        
+            print("---------Enter a valid option-------")
+            data = int(input("Enter:"))
+            if(data == 1):
+                lib.display_books()
+            print("\n")
+            if(data == 2):
+                lib.return_book(stu.give_back())
+            print("\n")
+            if(data == 3):
+                lib.take_book(stu.lend_book())
+            print("\n")
+            if(data == 4):
+                break
+
+
+print(main_work())
+
+
